@@ -1,8 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main()
-{
+void diff();
+
+int main(){
+
+    diff();
+
+    return 0;
+    }
+
+
+void diff(){
     char difficulty;
     int currency = 0;
 
@@ -31,5 +40,5 @@ int main()
         }
     }
     printf("\nCurrency is %d", currency);
-    return 0;
+    return;
 }
