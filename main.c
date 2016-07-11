@@ -3,6 +3,13 @@
 
 char faction;
 int currency = 0;
+char unit;
+int infantry = 0;
+int heavyInfantry = 0;
+int lightCavalry = 0;
+int knight = 0;
+int skirmisher = 0;
+int archer = 0;
 
 void diff();
 void fact();
@@ -81,13 +88,7 @@ void fact(){
     return;
 }
 void unitSelectionH(){
-char unit;
-int infantry;
-int heavyInfantry;
-int lightCavalry;
-int knight;
-int skirmisher;
-int archer;
+
 
 
 printf("\nPlease select your Human units\n\n");
@@ -163,16 +164,10 @@ printf("[S]kirmishers\t\t(Cost 1, Attack 1, Defense 1)\n[A]rchers\t\t(Cost 2, At
             printf("\nInvalid selection");
             }
     }
+    printf("\nYour unit roster is\n\n%d Infantry, %d Heavy Infantry, \n%d Light Cavalry, %d Knights, \n%d Skirmishers, %d Archers.\n", infantry, heavyInfantry, lightCavalry, knight, skirmisher, archer);
     return;
 }
 void unitSelectionE(){
-char unit;
-int infantry;
-int heavyInfantry;
-int lightCavalry;
-int knight;
-int skirmisher;
-int archer;
 
 
 printf("\nPlease select your Elf units\n\n");
@@ -248,16 +243,10 @@ printf("[S]kirmishers\t\t(Cost 1, Attack 1, Defense 1)\n[A]rchers\t\t(Cost 2, At
             printf("\nInvalid selection");
             }
     }
+    printf("\nYour unit roster is\n\n%d Infantry, %d Heavy Infantry, \n%d Light Cavalry, %d Knights, \n%d Skirmishers, %d Archers.\n", infantry, heavyInfantry, lightCavalry, knight, skirmisher, archer);
     return;
 }
 void unitSelectionO(){
-char unit;
-int infantry;
-int heavyInfantry;
-int lightCavalry;
-int knight;
-int skirmisher;
-int archer;
 
 
 printf("\nPlease select your Orc units\n\n");
@@ -333,5 +322,6 @@ printf("[S]kirmishers\t\t(Cost 1, Attack 1, Defense 1)\n[A]rchers\t\t(Cost 2, At
             printf("\nInvalid selection");
             }
     }
+    printf("\nYour unit roster is\n\n%d Infantry, %d Heavy Infantry, \n%d Light Cavalry, %d Knights, \n%d Skirmishers, %d Archers.\n", infantry, heavyInfantry, lightCavalry, knight, skirmisher, archer);
     return;
 }
