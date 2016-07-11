@@ -6,11 +6,17 @@ int currency = 0;
 
 void diff();
 void fact();
+void unitSelectionH();
+void unitSelectionE();
+void unitSelectionO();
 
 int main(){
 
     diff();
     fact();
+    if (faction == 'h' || faction == 'H')unitSelectionH();
+    if (faction == 'e' || faction == 'E')unitSelectionE();
+    if (faction == 'o' || faction == 'O')unitSelectionO();
     return 0;
     }
 
@@ -23,7 +29,7 @@ void diff(){
     scanf(" %c", &difficulty);
     getchar();
 
-        switch(difficulty){
+            switch(difficulty){
 
             case 'e': case 'E':
             printf("\nEasy selected\n");
@@ -42,20 +48,19 @@ void diff(){
 
             default:
             printf("\nInvalid selection\n");
-        }
+            }
     }
-    printf("\nCurrency is %d\n\n", currency);
     return;
 }
 void fact(){
 
 
     while (faction != 'h' && faction != 'e' && faction != 'o' && faction != 'H' && faction != 'E' && faction != 'O'){
-    printf("Please select your Faction\n\n[H]umans, [O]rcs, [E]lves\n");
+    printf("Please select your Faction\n\n[H]umans, [E]lves, [O]rcs\n");
     scanf(" %c", &faction);
     getchar();
 
-        switch(faction){
+            switch(faction){
 
             case 'h': case 'H':
             printf("\nHuman faction selected.");
@@ -71,7 +76,262 @@ void fact(){
 
             default:
             printf("\nInvalid selection");
-        }
+            }
+    }
+    return;
+}
+void unitSelectionH(){
+char unit;
+int infantry;
+int heavyInfantry;
+int lightCavalry;
+int knight;
+int skirmisher;
+int archer;
+
+
+printf("\nPlease select your Human units\n\n");
+printf("[I]nfantry\t\t(Cost 1, Attack 1, Defense 1)\n[H]eavy Infantry\t(Cost 2, Attack 2, Defense 2)\n");
+printf("[L]ight Cavalry\t\t(Cost 1, Attack 1, Defense 1)\n[K]nights\t\t(Cost 2, Attack 2, Defense 2)\n");
+printf("[S]kirmishers\t\t(Cost 1, Attack 1, Defense 1)\n[A]rchers\t\t(Cost 2, Attack 2, Defense 2)\n");
+
+    while (currency >= 2){
+    printf("\nYou have %d to spend on units", currency);
+    scanf(" %c", &unit);
+    getchar();
+
+            switch(unit){
+
+            case 'i': case 'I':
+            infantry ++;
+            currency --;
+            break;
+
+            case 'h': case 'H':
+            heavyInfantry ++;
+            currency -= 2;
+            break;
+
+            case 'l': case 'L':
+            lightCavalry ++;
+            currency --;
+            break;
+
+            case 'k': case 'K':
+            knight ++;
+            currency -= 2;
+            break;
+
+            case 's': case 'S':
+            skirmisher ++;
+            currency --;
+            break;
+
+            case 'a': case 'A':
+            archer ++;
+            currency -= 2;
+            break;
+
+            default:
+            printf("\nInvalid selection");
+            }
+    }
+        while (currency == 1){
+        printf("\nYou have %d to spend on units", currency);
+        scanf(" %c", &unit);
+        getchar();
+
+
+            switch(unit){
+
+            case 'i': case 'I':
+            infantry ++;
+            currency --;
+            break;
+
+            case 'l': case 'L':
+            lightCavalry ++;
+            currency --;
+            break;
+
+            case 's': case 'S':
+            skirmisher ++;
+            currency --;
+            break;
+
+            default:
+            printf("\nInvalid selection");
+            }
+    }
+    return;
+}
+void unitSelectionE(){
+char unit;
+int infantry;
+int heavyInfantry;
+int lightCavalry;
+int knight;
+int skirmisher;
+int archer;
+
+
+printf("\nPlease select your Elf units\n\n");
+printf("[I]nfantry\t\t(Cost 1, Attack 1, Defense 1)\n[H]eavy Infantry\t(Cost 2, Attack 2, Defense 2)\n");
+printf("[L]ight Cavalry\t\t(Cost 1, Attack 1, Defense 1)\n[K]nights\t\t(Cost 2, Attack 2, Defense 2)\n");
+printf("[S]kirmishers\t\t(Cost 1, Attack 1, Defense 1)\n[A]rchers\t\t(Cost 2, Attack 2, Defense 2)\n");
+
+    while (currency >= 2){
+    printf("\nYou have %d to spend on units", currency);
+    scanf(" %c", &unit);
+    getchar();
+
+            switch(unit){
+
+            case 'i': case 'I':
+            infantry ++;
+            currency --;
+            break;
+
+            case 'h': case 'H':
+            heavyInfantry ++;
+            currency -= 2;
+            break;
+
+            case 'l': case 'L':
+            lightCavalry ++;
+            currency --;
+            break;
+
+            case 'k': case 'K':
+            knight ++;
+            currency -= 2;
+            break;
+
+            case 's': case 'S':
+            skirmisher ++;
+            currency --;
+            break;
+
+            case 'a': case 'A':
+            archer ++;
+            currency -= 2;
+            break;
+
+            default:
+            printf("\nInvalid selection");
+            }
+    }
+        while (currency == 1){
+        printf("\nYou have %d to spend on units", currency);
+        scanf(" %c", &unit);
+        getchar();
+
+
+            switch(unit){
+
+            case 'i': case 'I':
+            infantry ++;
+            currency --;
+            break;
+
+            case 'l': case 'L':
+            lightCavalry ++;
+            currency --;
+            break;
+
+            case 's': case 'S':
+            skirmisher ++;
+            currency --;
+            break;
+
+            default:
+            printf("\nInvalid selection");
+            }
+    }
+    return;
+}
+void unitSelectionO(){
+char unit;
+int infantry;
+int heavyInfantry;
+int lightCavalry;
+int knight;
+int skirmisher;
+int archer;
+
+
+printf("\nPlease select your Orc units\n\n");
+printf("[I]nfantry\t\t(Cost 1, Attack 1, Defense 1)\n[H]eavy Infantry\t(Cost 2, Attack 2, Defense 2)\n");
+printf("[L]ight Cavalry\t\t(Cost 1, Attack 1, Defense 1)\n[K]nights\t\t(Cost 2, Attack 2, Defense 2)\n");
+printf("[S]kirmishers\t\t(Cost 1, Attack 1, Defense 1)\n[A]rchers\t\t(Cost 2, Attack 2, Defense 2)\n");
+
+    while (currency >= 2){
+    printf("\nYou have %d to spend on units", currency);
+    scanf(" %c", &unit);
+    getchar();
+
+            switch(unit){
+
+            case 'i': case 'I':
+            infantry ++;
+            currency --;
+            break;
+
+            case 'h': case 'H':
+            heavyInfantry ++;
+            currency -= 2;
+            break;
+
+            case 'l': case 'L':
+            lightCavalry ++;
+            currency --;
+            break;
+
+            case 'k': case 'K':
+            knight ++;
+            currency -= 2;
+            break;
+
+            case 's': case 'S':
+            skirmisher ++;
+            currency --;
+            break;
+
+            case 'a': case 'A':
+            archer ++;
+            currency -= 2;
+            break;
+
+            default:
+            printf("\nInvalid selection");
+            }
+    }
+        while (currency == 1){
+        printf("\nYou have %d to spend on units", currency);
+        scanf(" %c", &unit);
+        getchar();
+
+
+            switch(unit){
+
+            case 'i': case 'I':
+            infantry ++;
+            currency --;
+            break;
+
+            case 'l': case 'L':
+            lightCavalry ++;
+            currency --;
+            break;
+
+            case 's': case 'S':
+            skirmisher ++;
+            currency --;
+            break;
+
+            default:
+            printf("\nInvalid selection");
+            }
     }
     return;
 }
