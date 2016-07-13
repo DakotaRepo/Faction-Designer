@@ -11,6 +11,12 @@ int lightCavalry = 0;
 int knight = 0;
 int skirmisher = 0;
 int archer = 0;
+int enemyInfantry = 0;
+int enemyHeavyInfantry = 0;
+int enemyLightCavalry = 0;
+int enemyKnight = 0;
+int enemySkirmisher = 0;
+int enemyArcher = 0;
 
 void diff();
 void fact();
@@ -18,9 +24,6 @@ void unitSelectionH();
 void unitSelectionE();
 void unitSelectionO();
 void randomEnemySelection();
-void enemyHuman();
-void enemyElven();
-void enemyOrcish();
 
 int main(){
 
@@ -333,57 +336,72 @@ printf("[R]aiders(Cost 1, Attack 1, Defense 1)\n[W]arlocks(Cost 2, Attack 2, Def
     printf("\nYour unit roster is\n\n%d Infantry, %d Heavy Infantry, \n%d Light Cavalry, %d Knights, \n%d Skirmishers, %d Archers.\n", infantry, heavyInfantry, lightCavalry, knight, skirmisher, archer);
     return;
 }
-void enemyHuman(){
-
-printf("Placeholder");
-
-
-
-
-
-}
-void enemyElven(){
-
-printf("Placeholder");
-
-
-
-
-
-}
-void enemyOrcish(){
-
-printf("Placeholder");
-
-
-
-
-
-}
 void randomEnemySelection(){
-    int factionSelection = 4;
+    int factionSelection = 7;
 
-while(factionSelection >3){
-    factionSelection = (rand()%10) + 1;
+while(factionSelection >6){
+    factionSelection = (rand()%20) + 1;
     }
         switch(factionSelection){
 
         case 1:
-
-        printf("\n\nOpposing Force is Human");
-        //enemyHuman();
+        printf("\n\nOpposing Force is Human Offensive");
+        enemyLightCavalry = 4;
+        enemySkirmisher = 2;
+        enemyKnight = 2;
+        enemyArcher = 2;
+        enemyHeavyInfantry = 2;
+        enemyInfantry = 6;
         break;
 
         case 2:
-
-        printf("\n\nOpposing Force is Elven");
-        //enemyElven();
+        printf("\n\nOpposing Force is Human Defensive");
+        enemyLightCavalry = 2;
+        enemySkirmisher = 4;
+        enemyKnight = 0;
+        enemyArcher = 2;
+        enemyHeavyInfantry = 4;
+        enemyInfantry = 2;
         break;
 
         case 3:
+        printf("\n\nOpposing Force is Elven Offensive");
+        enemyLightCavalry = 4;
+        enemySkirmisher = 2;
+        enemyKnight = 2;
+        enemyArcher = 2;
+        enemyHeavyInfantry = 2;
+        enemyInfantry = 6;
+        break;
 
-        printf("\n\nOpposing Force is Orcish");
-        //enemyOrcish();
+        case 4:
+        printf("\n\nOpposing Force is Elven Defensive");
+        enemyLightCavalry = 2;
+        enemySkirmisher = 4;
+        enemyKnight = 0;
+        enemyArcher = 2;
+        enemyHeavyInfantry = 4;
+        enemyInfantry = 2;
+        break;
+
+        case 5:
+        printf("\n\nOpposing Force is Orcish Offensive");
+        enemyLightCavalry = 4;
+        enemySkirmisher = 2;
+        enemyKnight = 2;
+        enemyArcher = 2;
+        enemyHeavyInfantry = 2;
+        enemyInfantry = 6;
+        break;
+
+        case 6:
+        printf("\n\nOpposing Force is Orcish Defensive");
+        enemyLightCavalry = 2;
+        enemySkirmisher = 4;
+        enemyKnight = 0;
+        enemyArcher = 2;
+        enemyHeavyInfantry = 4;
+        enemyInfantry = 2;
         break;
 
         default:
@@ -391,5 +409,7 @@ while(factionSelection >3){
 
 
     }
+    printf("\n\nThe enemy force contains\n\n%d Infantry, %d Heavy Infantry, \n%d Light Cavalry, %d Knights, \n%d Skirmishers, %d Archers.\n",
+           enemyInfantry, enemyHeavyInfantry, enemyLightCavalry, enemyKnight, enemySkirmisher, enemyArcher);
 return;
 }
