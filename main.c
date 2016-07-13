@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 char faction;
 int currency = 0;
@@ -16,6 +17,10 @@ void fact();
 void unitSelectionH();
 void unitSelectionE();
 void unitSelectionO();
+void randomEnemySelection();
+void enemyHuman();
+void enemyElven();
+void enemyOrcish();
 
 int main(){
 
@@ -24,6 +29,9 @@ int main(){
     if (faction == 'h' || faction == 'H')unitSelectionH();
     if (faction == 'e' || faction == 'E')unitSelectionE();
     if (faction == 'o' || faction == 'O')unitSelectionO();
+
+    srand(time(NULL));
+    randomEnemySelection();
     return 0;
     }
 
@@ -92,9 +100,9 @@ void unitSelectionH(){
 
 
 printf("\nPlease select your Human units\n\n");
-printf("[I]nfantry\t\t(Cost 1, Attack 1, Defense 1)\n[H]eavy Infantry\t(Cost 2, Attack 2, Defense 2)\n");
-printf("[L]ight Cavalry\t\t(Cost 1, Attack 1, Defense 1)\n[K]nights\t\t(Cost 2, Attack 2, Defense 2)\n");
-printf("[S]kirmishers\t\t(Cost 1, Attack 1, Defense 1)\n[A]rchers\t\t(Cost 2, Attack 2, Defense 2)\n");
+printf("[P]ikemen(Cost 1, Attack 1, Defense 1)\n[G]uards(Cost 2, Attack 2, Defense 2)\n");
+printf("[L]ancers(Cost 1, Attack 1, Defense 1)\n[K]nights(Cost 2, Attack 2, Defense 2)\n");
+printf("[S]kirmishers(Cost 1, Attack 1, Defense 1)\n[A]rchers(Cost 2, Attack 2, Defense 2)\n");
 
     while (currency >= 2){
     printf("\nYou have %d to spend on units", currency);
@@ -103,12 +111,12 @@ printf("[S]kirmishers\t\t(Cost 1, Attack 1, Defense 1)\n[A]rchers\t\t(Cost 2, At
 
             switch(unit){
 
-            case 'i': case 'I':
+            case 'p': case 'P':
             infantry ++;
             currency --;
             break;
 
-            case 'h': case 'H':
+            case 'g': case 'G':
             heavyInfantry ++;
             currency -= 2;
             break;
@@ -145,7 +153,7 @@ printf("[S]kirmishers\t\t(Cost 1, Attack 1, Defense 1)\n[A]rchers\t\t(Cost 2, At
 
             switch(unit){
 
-            case 'i': case 'I':
+            case 'p': case 'P':
             infantry ++;
             currency --;
             break;
@@ -171,9 +179,9 @@ void unitSelectionE(){
 
 
 printf("\nPlease select your Elf units\n\n");
-printf("[I]nfantry\t\t(Cost 1, Attack 1, Defense 1)\n[H]eavy Infantry\t(Cost 2, Attack 2, Defense 2)\n");
-printf("[L]ight Cavalry\t\t(Cost 1, Attack 1, Defense 1)\n[K]nights\t\t(Cost 2, Attack 2, Defense 2)\n");
-printf("[S]kirmishers\t\t(Cost 1, Attack 1, Defense 1)\n[A]rchers\t\t(Cost 2, Attack 2, Defense 2)\n");
+printf("[M]ilitia(Cost 1, Attack 1, Defense 1)\n[G]uardians(Cost 2, Attack 1, Defense 3)\n");
+printf("[B]ow Cavalry(Cost 1, Attack 1, Defense 1)\n[N]oble Cavalry(Cost 2, Attack 2, Defense 2)\n");
+printf("[W]atchers(Cost 1, Attack 1, Defense 1)\n[L]ongbowmen(Cost 2, Attack 2, Defense 2)\n");
 
     while (currency >= 2){
     printf("\nYou have %d to spend on units", currency);
@@ -182,32 +190,32 @@ printf("[S]kirmishers\t\t(Cost 1, Attack 1, Defense 1)\n[A]rchers\t\t(Cost 2, At
 
             switch(unit){
 
-            case 'i': case 'I':
+            case 'm': case 'M':
             infantry ++;
             currency --;
             break;
 
-            case 'h': case 'H':
+            case 'g': case 'G':
             heavyInfantry ++;
             currency -= 2;
             break;
 
-            case 'l': case 'L':
+            case 'b': case 'B':
             lightCavalry ++;
             currency --;
             break;
 
-            case 'k': case 'K':
+            case 'n': case 'N':
             knight ++;
             currency -= 2;
             break;
 
-            case 's': case 'S':
+            case 'w': case 'W':
             skirmisher ++;
             currency --;
             break;
 
-            case 'a': case 'A':
+            case 'l': case 'L':
             archer ++;
             currency -= 2;
             break;
@@ -224,17 +232,17 @@ printf("[S]kirmishers\t\t(Cost 1, Attack 1, Defense 1)\n[A]rchers\t\t(Cost 2, At
 
             switch(unit){
 
-            case 'i': case 'I':
+            case 'm': case 'M':
             infantry ++;
             currency --;
             break;
 
-            case 'l': case 'L':
+            case 'b': case 'B':
             lightCavalry ++;
             currency --;
             break;
 
-            case 's': case 'S':
+            case 'w': case 'W':
             skirmisher ++;
             currency --;
             break;
@@ -250,9 +258,9 @@ void unitSelectionO(){
 
 
 printf("\nPlease select your Orc units\n\n");
-printf("[I]nfantry\t\t(Cost 1, Attack 1, Defense 1)\n[H]eavy Infantry\t(Cost 2, Attack 2, Defense 2)\n");
-printf("[L]ight Cavalry\t\t(Cost 1, Attack 1, Defense 1)\n[K]nights\t\t(Cost 2, Attack 2, Defense 2)\n");
-printf("[S]kirmishers\t\t(Cost 1, Attack 1, Defense 1)\n[A]rchers\t\t(Cost 2, Attack 2, Defense 2)\n");
+printf("[M]arauders(Cost 1, Attack 2, Defense 1)\n[C]hampions(Cost 2, Attack 2, Defense 2)\n");
+printf("[S]torm Riders(Cost 1, Attack 2, Defense 1)\n[B]ear Cavalry(Cost 2, Attack 3, Defense 1)\n");
+printf("[R]aiders(Cost 1, Attack 1, Defense 1)\n[W]arlocks(Cost 2, Attack 2, Defense 1)\n");
 
     while (currency >= 2){
     printf("\nYou have %d to spend on units", currency);
@@ -261,32 +269,32 @@ printf("[S]kirmishers\t\t(Cost 1, Attack 1, Defense 1)\n[A]rchers\t\t(Cost 2, At
 
             switch(unit){
 
-            case 'i': case 'I':
+            case 'm': case 'M':
             infantry ++;
             currency --;
             break;
 
-            case 'h': case 'H':
+            case 'c': case 'C':
             heavyInfantry ++;
             currency -= 2;
             break;
 
-            case 'l': case 'L':
+            case 's': case 'S':
             lightCavalry ++;
             currency --;
             break;
 
-            case 'k': case 'K':
+            case 'b': case 'B':
             knight ++;
             currency -= 2;
             break;
 
-            case 's': case 'S':
+            case 'r': case 'R':
             skirmisher ++;
             currency --;
             break;
 
-            case 'a': case 'A':
+            case 'w': case 'W':
             archer ++;
             currency -= 2;
             break;
@@ -303,17 +311,17 @@ printf("[S]kirmishers\t\t(Cost 1, Attack 1, Defense 1)\n[A]rchers\t\t(Cost 2, At
 
             switch(unit){
 
-            case 'i': case 'I':
+            case 'm': case 'M':
             infantry ++;
             currency --;
             break;
 
-            case 'l': case 'L':
+            case 's': case 'S':
             lightCavalry ++;
             currency --;
             break;
 
-            case 's': case 'S':
+            case 'r': case 'R':
             skirmisher ++;
             currency --;
             break;
@@ -324,4 +332,64 @@ printf("[S]kirmishers\t\t(Cost 1, Attack 1, Defense 1)\n[A]rchers\t\t(Cost 2, At
     }
     printf("\nYour unit roster is\n\n%d Infantry, %d Heavy Infantry, \n%d Light Cavalry, %d Knights, \n%d Skirmishers, %d Archers.\n", infantry, heavyInfantry, lightCavalry, knight, skirmisher, archer);
     return;
+}
+void enemyHuman(){
+
+printf("Placeholder");
+
+
+
+
+
+}
+void enemyElven(){
+
+printf("Placeholder");
+
+
+
+
+
+}
+void enemyOrcish(){
+
+printf("Placeholder");
+
+
+
+
+
+}
+void randomEnemySelection(){
+    int factionSelection = 4;
+
+while(factionSelection >3){
+    factionSelection = (rand()%10) + 1;
+    }
+        switch(factionSelection){
+
+        case 1:
+
+        printf("\n\nOpposing Force is Human");
+        //enemyHuman();
+        break;
+
+        case 2:
+
+        printf("\n\nOpposing Force is Elven");
+        //enemyElven();
+        break;
+
+        case 3:
+
+        printf("\n\nOpposing Force is Orcish");
+        //enemyOrcish();
+        break;
+
+        default:
+        printf("\n\nError selecting opposing force");
+
+
+    }
+return;
 }
