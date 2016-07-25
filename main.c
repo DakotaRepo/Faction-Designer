@@ -42,7 +42,7 @@ int main(){
 void diff(){
     char difficulty;
 
-    while (difficulty != 'e' && difficulty != 'n' && difficulty != 'h' && difficulty != 'E' && difficulty != 'N' && difficulty != 'H'){
+    do {
     printf("Please select your difficulty\n[E]asy, [N]ormal, [H]ard.\n");
     scanf(" %c", &difficulty);
     getchar();
@@ -67,13 +67,13 @@ void diff(){
             default:
             printf("\nInvalid selection\n");
             }
-    }
+    }while (difficulty != 'e' && difficulty != 'n' && difficulty != 'h' && difficulty != 'E' && difficulty != 'N' && difficulty != 'H');
     return;
 }
 void fact(){
 
 
-    while (faction != 'h' && faction != 'e' && faction != 'o' && faction != 'H' && faction != 'E' && faction != 'O'){
+    do {
     printf("Please select your Faction\n\n[H]umans, [E]lves, [O]rcs\n");
     scanf(" %c", &faction);
     getchar();
@@ -95,7 +95,7 @@ void fact(){
             default:
             printf("\nInvalid selection");
             }
-    }
+    }while (faction != 'h' && faction != 'e' && faction != 'o' && faction != 'H' && faction != 'E' && faction != 'O');
     return;
 }
 void unitSelectionH(){
@@ -107,7 +107,7 @@ printf("[P]ikemen(Cost 1, Attack 1, Defense 1)\n[G]uards(Cost 2, Attack 2, Defen
 printf("[L]ancers(Cost 1, Attack 1, Defense 1)\n[K]nights(Cost 2, Attack 2, Defense 2)\n");
 printf("[S]kirmishers(Cost 1, Attack 1, Defense 1)\n[A]rchers(Cost 2, Attack 2, Defense 2)\n");
 
-    while (currency >= 2){
+    do {
     printf("\nYou have %d to spend on units", currency);
     scanf(" %c", &unit);
     getchar();
@@ -147,7 +147,9 @@ printf("[S]kirmishers(Cost 1, Attack 1, Defense 1)\n[A]rchers(Cost 2, Attack 2, 
             default:
             printf("\nInvalid selection");
             }
-    }
+
+    }while (currency >= 2);
+
         while (currency == 1){
         printf("\nYou have %d to spend on units", currency);
         scanf(" %c", &unit);
@@ -186,7 +188,7 @@ printf("[M]ilitia(Cost 1, Attack 1, Defense 1)\n[G]uardians(Cost 2, Attack 1, De
 printf("[B]ow Cavalry(Cost 1, Attack 1, Defense 1)\n[N]oble Cavalry(Cost 2, Attack 2, Defense 2)\n");
 printf("[W]atchers(Cost 1, Attack 1, Defense 1)\n[L]ongbowmen(Cost 2, Attack 2, Defense 2)\n");
 
-    while (currency >= 2){
+    do {
     printf("\nYou have %d to spend on units", currency);
     scanf(" %c", &unit);
     getchar();
@@ -226,7 +228,8 @@ printf("[W]atchers(Cost 1, Attack 1, Defense 1)\n[L]ongbowmen(Cost 2, Attack 2, 
             default:
             printf("\nInvalid selection");
             }
-    }
+    }while (currency >= 2);
+
         while (currency == 1){
         printf("\nYou have %d to spend on units", currency);
         scanf(" %c", &unit);
@@ -265,7 +268,7 @@ printf("[M]arauders(Cost 1, Attack 2, Defense 1)\n[C]hampions(Cost 2, Attack 2, 
 printf("[S]torm Riders(Cost 1, Attack 2, Defense 1)\n[B]ear Cavalry(Cost 2, Attack 3, Defense 1)\n");
 printf("[R]aiders(Cost 1, Attack 1, Defense 1)\n[W]arlocks(Cost 2, Attack 2, Defense 1)\n");
 
-    while (currency >= 2){
+    do {
     printf("\nYou have %d to spend on units", currency);
     scanf(" %c", &unit);
     getchar();
@@ -305,7 +308,8 @@ printf("[R]aiders(Cost 1, Attack 1, Defense 1)\n[W]arlocks(Cost 2, Attack 2, Def
             default:
             printf("\nInvalid selection");
             }
-    }
+    }while (currency >= 2);
+
         while (currency == 1){
         printf("\nYou have %d to spend on units", currency);
         scanf(" %c", &unit);
