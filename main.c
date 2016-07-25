@@ -2,28 +2,42 @@
 #include <stdlib.h>
 #include <time.h>
 
-char faction;
+
 int currency = 0;
-char unit;
-int infantry = 0;
-int heavyInfantry = 0;
-int lightCavalry = 0;
-int knight = 0;
-int skirmisher = 0;
-int archer = 0;
+int humanInfantry = 0;
+int humanHeavyInfantry = 0;
+int humanLightCavalry = 0;
+int humanKnight = 0;
+int humanSkirmisher = 0;
+int humanArcher = 0;
+int elfInfantry = 0;
+int elfHeavyInfantry = 0;
+int elfLightCavalry = 0;
+int elfKnight = 0;
+int elfSkirmisher = 0;
+int elfArcher = 0;
+int orcInfantry = 0;
+int orcHeavyInfantry = 0;
+int orcLightCavalry = 0;
+int orcKnight = 0;
+int orcSkirmisher = 0;
+int orcArcher = 0;
 int enemyInfantry = 0;
 int enemyHeavyInfantry = 0;
 int enemyLightCavalry = 0;
 int enemyKnight = 0;
 int enemySkirmisher = 0;
 int enemyArcher = 0;
+char unit;
 char quit;
+char faction;
 
 void diff();
 void fact();
 void unitSelectionH();
 void unitSelectionE();
 void unitSelectionO();
+void unitTotal();
 void randomEnemySelection();
 
 int main(){
@@ -36,6 +50,7 @@ int main(){
 
     }while ((currency >= 1) && (quit != 'q'));
 
+    unitTotal();
     srand(time(NULL));
     randomEnemySelection();
     return 0;
@@ -78,7 +93,7 @@ void fact(){
 
     do {
     printf("Please select your Faction\n\n[H]umans, [E]lves, [O]rcs\n");
-    printf("[Q] to cancel faction selection\n");
+    printf("[Q]to cancel faction selection\n");
     scanf(" %c", &faction);
     getchar();
 
@@ -115,10 +130,10 @@ printf("\nPlease select your Human units\n\n");
 printf("[P]ikemen(Cost 1, Attack 1, Defense 1)\n[G]uards(Cost 2, Attack 2, Defense 2)\n");
 printf("[L]ancers(Cost 1, Attack 1, Defense 1)\n[K]nights(Cost 2, Attack 2, Defense 2)\n");
 printf("[S]kirmishers(Cost 1, Attack 1, Defense 1)\n[A]rchers(Cost 2, Attack 2, Defense 2)\n");
-printf("[Q] to return to faction selection screen\n");
+printf("[Q]to return to faction selection screen\n");
 
     do {
-    printf("\nYou have %d to spend on units", currency);
+    printf("\nYou have %d to spend on units ", currency);
     scanf(" %c", &unit);
     getchar();
 
@@ -129,32 +144,32 @@ printf("[Q] to return to faction selection screen\n");
             break;
 
             case 'p': case 'P':
-            infantry ++;
+            humanInfantry ++;
             currency --;
             break;
 
             case 'g': case 'G':
-            heavyInfantry ++;
+            humanHeavyInfantry ++;
             currency -= 2;
             break;
 
             case 'l': case 'L':
-            lightCavalry ++;
+            humanLightCavalry ++;
             currency --;
             break;
 
             case 'k': case 'K':
-            knight ++;
+            humanKnight ++;
             currency -= 2;
             break;
 
             case 's': case 'S':
-            skirmisher ++;
+            humanSkirmisher ++;
             currency --;
             break;
 
             case 'a': case 'A':
-            archer ++;
+            humanArcher ++;
             currency -= 2;
             break;
 
@@ -165,7 +180,7 @@ printf("[Q] to return to faction selection screen\n");
     }while ((currency >= 2) && (quit != 'q'));
 
         while ((currency == 1) && (quit != 'q')){
-        printf("\nYou have %d to spend on units", currency);
+        printf("\nYou have %d to spend on units ", currency);
         scanf(" %c", &unit);
         getchar();
 
@@ -177,17 +192,17 @@ printf("[Q] to return to faction selection screen\n");
             break;
 
             case 'p': case 'P':
-            infantry ++;
+            humanInfantry ++;
             currency --;
             break;
 
             case 'l': case 'L':
-            lightCavalry ++;
+            humanLightCavalry ++;
             currency --;
             break;
 
             case 's': case 'S':
-            skirmisher ++;
+            humanSkirmisher ++;
             currency --;
             break;
 
@@ -195,7 +210,6 @@ printf("[Q] to return to faction selection screen\n");
             printf("\nInvalid selection");
             }
     }
-    printf("\nYour unit roster is\n\n%d Infantry, %d Heavy Infantry, \n%d Light Cavalry, %d Knights, \n%d Skirmishers, %d Archers.\n", infantry, heavyInfantry, lightCavalry, knight, skirmisher, archer);
     quit = 'n';
     return;
 }
@@ -206,10 +220,10 @@ printf("\nPlease select your Elf units\n\n");
 printf("[M]ilitia(Cost 1, Attack 1, Defense 1)\n[G]uardians(Cost 2, Attack 1, Defense 3)\n");
 printf("[B]ow Cavalry(Cost 1, Attack 1, Defense 1)\n[N]oble Cavalry(Cost 2, Attack 2, Defense 2)\n");
 printf("[W]atchers(Cost 1, Attack 1, Defense 1)\n[L]ongbowmen(Cost 2, Attack 2, Defense 2)\n");
-printf("[Q] to return to faction selection screen\n");
+printf("[Q]to return to faction selection screen\n");
 
     do {
-    printf("\nYou have %d to spend on units", currency);
+    printf("\nYou have %d to spend on units ", currency);
     scanf(" %c", &unit);
     getchar();
 
@@ -220,32 +234,32 @@ printf("[Q] to return to faction selection screen\n");
             break;
 
             case 'm': case 'M':
-            infantry ++;
+            elfInfantry ++;
             currency --;
             break;
 
             case 'g': case 'G':
-            heavyInfantry ++;
+            elfHeavyInfantry ++;
             currency -= 2;
             break;
 
             case 'b': case 'B':
-            lightCavalry ++;
+            elfLightCavalry ++;
             currency --;
             break;
 
             case 'n': case 'N':
-            knight ++;
+            elfKnight ++;
             currency -= 2;
             break;
 
             case 'w': case 'W':
-            skirmisher ++;
+            elfSkirmisher ++;
             currency --;
             break;
 
             case 'l': case 'L':
-            archer ++;
+            elfArcher ++;
             currency -= 2;
             break;
 
@@ -255,7 +269,7 @@ printf("[Q] to return to faction selection screen\n");
     }while ((currency >= 2) && (quit != 'q'));
 
         while ((currency == 1) && (quit != 'q')){
-        printf("\nYou have %d to spend on units", currency);
+        printf("\nYou have %d to spend on units ", currency);
         scanf(" %c", &unit);
         getchar();
 
@@ -267,17 +281,17 @@ printf("[Q] to return to faction selection screen\n");
             break;
 
             case 'm': case 'M':
-            infantry ++;
+            elfInfantry ++;
             currency --;
             break;
 
             case 'b': case 'B':
-            lightCavalry ++;
+            elfLightCavalry ++;
             currency --;
             break;
 
             case 'w': case 'W':
-            skirmisher ++;
+            elfSkirmisher ++;
             currency --;
             break;
 
@@ -285,7 +299,6 @@ printf("[Q] to return to faction selection screen\n");
             printf("\nInvalid selection");
             }
     }
-    printf("\nYour unit roster is\n\n%d Infantry, %d Heavy Infantry, \n%d Light Cavalry, %d Knights, \n%d Skirmishers, %d Archers.\n", infantry, heavyInfantry, lightCavalry, knight, skirmisher, archer);
     quit = 'n';
     return;
 }
@@ -296,10 +309,10 @@ printf("\nPlease select your Orc units\n\n");
 printf("[M]arauders(Cost 1, Attack 2, Defense 1)\n[C]hampions(Cost 2, Attack 2, Defense 2)\n");
 printf("[S]torm Riders(Cost 1, Attack 2, Defense 1)\n[B]ear Cavalry(Cost 2, Attack 3, Defense 1)\n");
 printf("[R]aiders(Cost 1, Attack 1, Defense 1)\n[W]arlocks(Cost 2, Attack 2, Defense 1)\n");
-printf("[Q] to return to faction selection screen\n");
+printf("[Q]to return to faction selection screen\n");
 
     do {
-    printf("\nYou have %d to spend on units", currency);
+    printf("\nYou have %d to spend on units ", currency);
     scanf(" %c", &unit);
     getchar();
 
@@ -310,32 +323,32 @@ printf("[Q] to return to faction selection screen\n");
             break;
 
             case 'm': case 'M':
-            infantry ++;
+            orcInfantry ++;
             currency --;
             break;
 
             case 'c': case 'C':
-            heavyInfantry ++;
+            orcHeavyInfantry ++;
             currency -= 2;
             break;
 
             case 's': case 'S':
-            lightCavalry ++;
+            orcLightCavalry ++;
             currency --;
             break;
 
             case 'b': case 'B':
-            knight ++;
+            orcKnight ++;
             currency -= 2;
             break;
 
             case 'r': case 'R':
-            skirmisher ++;
+            orcSkirmisher ++;
             currency --;
             break;
 
             case 'w': case 'W':
-            archer ++;
+            orcArcher ++;
             currency -= 2;
             break;
 
@@ -345,7 +358,7 @@ printf("[Q] to return to faction selection screen\n");
     }while ((currency >= 2) && (quit != 'q'));
 
         while ((currency == 1) && (quit != 'q')){
-        printf("\nYou have %d to spend on units", currency);
+        printf("\nYou have %d to spend on units ", currency);
         scanf(" %c", &unit);
         getchar();
 
@@ -357,17 +370,17 @@ printf("[Q] to return to faction selection screen\n");
             break;
 
             case 'm': case 'M':
-            infantry ++;
+            orcInfantry ++;
             currency --;
             break;
 
             case 's': case 'S':
-            lightCavalry ++;
+            orcLightCavalry ++;
             currency --;
             break;
 
             case 'r': case 'R':
-            skirmisher ++;
+            orcSkirmisher ++;
             currency --;
             break;
 
@@ -375,7 +388,6 @@ printf("[Q] to return to faction selection screen\n");
             printf("\nInvalid selection");
             }
     }
-    printf("\nYour unit roster is\n\n%d Infantry, %d Heavy Infantry, \n%d Light Cavalry, %d Knights, \n%d Skirmishers, %d Archers.\n", infantry, heavyInfantry, lightCavalry, knight, skirmisher, archer);
     quit = 'n';
     return;
 }
@@ -452,7 +464,31 @@ while(factionSelection >6){
 
 
     }
-    printf("\n\nThe enemy force contains\n\n%d Infantry, %d Heavy Infantry, \n%d Light Cavalry, %d Knights, \n%d Skirmishers, %d Archers.\n",
-           enemyInfantry, enemyHeavyInfantry, enemyLightCavalry, enemyKnight, enemySkirmisher, enemyArcher);
+    printf("\n\nThe enemy force contains\n\n%d Infantry, \n%d Cavalry, \n%d Archers.\n",
+           enemyInfantry + enemyHeavyInfantry, enemyLightCavalry + enemyKnight, enemySkirmisher + enemyArcher);
+return;
+}
+void unitTotal(){
+printf("\nYour force consists of\n");
+if (humanInfantry >0) printf("\n%d Pikemen", humanInfantry);
+if (humanHeavyInfantry >0) printf("\n%d Guards", humanHeavyInfantry);
+if (humanLightCavalry >0) printf("\n%d Lancers", humanLightCavalry);
+if (humanKnight >0) printf("\n%d Knights", humanKnight);
+if (humanSkirmisher >0) printf("\n%d Skirmishers", humanSkirmisher);
+if (humanArcher >0) printf("\n%d Archers", humanArcher);
+
+if (elfInfantry >0) printf("\n%d Militia", elfInfantry);
+if (elfHeavyInfantry >0) printf("\n%d Guardians", elfHeavyInfantry);
+if (elfLightCavalry >0) printf("\n%d Bow Cavalry", elfLightCavalry);
+if (elfKnight >0) printf("\n%d Noble Cavalry", elfKnight);
+if (elfSkirmisher >0) printf("\n%d Watchers", elfSkirmisher);
+if (elfArcher >0) printf("\n%d Longbowmen", elfArcher);
+
+if (orcInfantry >0) printf("\n%d Marauders", orcInfantry);
+if (orcHeavyInfantry >0) printf("\n%d Champions", orcHeavyInfantry);
+if (orcLightCavalry >0) printf("\n%d Storm Riders", orcLightCavalry);
+if (orcKnight >0) printf("\n%d Bear Cavalry", orcKnight);
+if (orcSkirmisher >0) printf("\n%d Raiders", orcSkirmisher);
+if (orcArcher >0) printf("\n%d Warlocks", orcArcher);
 return;
 }
