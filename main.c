@@ -17,6 +17,7 @@ int enemyLightCavalry = 0;
 int enemyKnight = 0;
 int enemySkirmisher = 0;
 int enemyArcher = 0;
+char quit;
 
 void diff();
 void fact();
@@ -28,10 +29,12 @@ void randomEnemySelection();
 int main(){
 
     diff();
+
+    do {
+
     fact();
-    if (faction == 'h' || faction == 'H')unitSelectionH();
-    if (faction == 'e' || faction == 'E')unitSelectionE();
-    if (faction == 'o' || faction == 'O')unitSelectionO();
+
+    }while ((currency >= 1) && (quit != 'q'));
 
     srand(time(NULL));
     randomEnemySelection();
@@ -75,10 +78,15 @@ void fact(){
 
     do {
     printf("Please select your Faction\n\n[H]umans, [E]lves, [O]rcs\n");
+    printf("[Q] to cancel faction selection\n");
     scanf(" %c", &faction);
     getchar();
 
             switch(faction){
+
+            case 'q': case 'Q':
+            quit = 'q';
+            break;
 
             case 'h': case 'H':
             printf("\nHuman faction selected.");
@@ -95,17 +103,19 @@ void fact(){
             default:
             printf("\nInvalid selection");
             }
-    }while (faction != 'h' && faction != 'e' && faction != 'o' && faction != 'H' && faction != 'E' && faction != 'O');
+    }while ((faction != 'h' && faction != 'e' && faction != 'o' && faction != 'H' && faction != 'E' && faction != 'O') && (quit != 'q'));
+    if (faction == 'h' || faction == 'H')unitSelectionH();
+    if (faction == 'e' || faction == 'E')unitSelectionE();
+    if (faction == 'o' || faction == 'O')unitSelectionO();
     return;
 }
 void unitSelectionH(){
-
-
 
 printf("\nPlease select your Human units\n\n");
 printf("[P]ikemen(Cost 1, Attack 1, Defense 1)\n[G]uards(Cost 2, Attack 2, Defense 2)\n");
 printf("[L]ancers(Cost 1, Attack 1, Defense 1)\n[K]nights(Cost 2, Attack 2, Defense 2)\n");
 printf("[S]kirmishers(Cost 1, Attack 1, Defense 1)\n[A]rchers(Cost 2, Attack 2, Defense 2)\n");
+printf("[Q] to return to faction selection screen\n");
 
     do {
     printf("\nYou have %d to spend on units", currency);
@@ -113,6 +123,10 @@ printf("[S]kirmishers(Cost 1, Attack 1, Defense 1)\n[A]rchers(Cost 2, Attack 2, 
     getchar();
 
             switch(unit){
+
+            case 'q': case 'Q':
+            quit = 'q';
+            break;
 
             case 'p': case 'P':
             infantry ++;
@@ -148,15 +162,19 @@ printf("[S]kirmishers(Cost 1, Attack 1, Defense 1)\n[A]rchers(Cost 2, Attack 2, 
             printf("\nInvalid selection");
             }
 
-    }while (currency >= 2);
+    }while ((currency >= 2) && (quit != 'q'));
 
-        while (currency == 1){
+        while ((currency == 1) && (quit != 'q')){
         printf("\nYou have %d to spend on units", currency);
         scanf(" %c", &unit);
         getchar();
 
 
             switch(unit){
+
+            case 'q': case 'Q':
+            quit = 'q';
+            break;
 
             case 'p': case 'P':
             infantry ++;
@@ -178,6 +196,7 @@ printf("[S]kirmishers(Cost 1, Attack 1, Defense 1)\n[A]rchers(Cost 2, Attack 2, 
             }
     }
     printf("\nYour unit roster is\n\n%d Infantry, %d Heavy Infantry, \n%d Light Cavalry, %d Knights, \n%d Skirmishers, %d Archers.\n", infantry, heavyInfantry, lightCavalry, knight, skirmisher, archer);
+    quit = 'n';
     return;
 }
 void unitSelectionE(){
@@ -187,6 +206,7 @@ printf("\nPlease select your Elf units\n\n");
 printf("[M]ilitia(Cost 1, Attack 1, Defense 1)\n[G]uardians(Cost 2, Attack 1, Defense 3)\n");
 printf("[B]ow Cavalry(Cost 1, Attack 1, Defense 1)\n[N]oble Cavalry(Cost 2, Attack 2, Defense 2)\n");
 printf("[W]atchers(Cost 1, Attack 1, Defense 1)\n[L]ongbowmen(Cost 2, Attack 2, Defense 2)\n");
+printf("[Q] to return to faction selection screen\n");
 
     do {
     printf("\nYou have %d to spend on units", currency);
@@ -194,6 +214,10 @@ printf("[W]atchers(Cost 1, Attack 1, Defense 1)\n[L]ongbowmen(Cost 2, Attack 2, 
     getchar();
 
             switch(unit){
+
+            case 'q': case 'Q':
+            quit = 'q';
+            break;
 
             case 'm': case 'M':
             infantry ++;
@@ -228,15 +252,19 @@ printf("[W]atchers(Cost 1, Attack 1, Defense 1)\n[L]ongbowmen(Cost 2, Attack 2, 
             default:
             printf("\nInvalid selection");
             }
-    }while (currency >= 2);
+    }while ((currency >= 2) && (quit != 'q'));
 
-        while (currency == 1){
+        while ((currency == 1) && (quit != 'q')){
         printf("\nYou have %d to spend on units", currency);
         scanf(" %c", &unit);
         getchar();
 
 
             switch(unit){
+
+            case 'q': case 'Q':
+            quit = 'q';
+            break;
 
             case 'm': case 'M':
             infantry ++;
@@ -258,6 +286,7 @@ printf("[W]atchers(Cost 1, Attack 1, Defense 1)\n[L]ongbowmen(Cost 2, Attack 2, 
             }
     }
     printf("\nYour unit roster is\n\n%d Infantry, %d Heavy Infantry, \n%d Light Cavalry, %d Knights, \n%d Skirmishers, %d Archers.\n", infantry, heavyInfantry, lightCavalry, knight, skirmisher, archer);
+    quit = 'n';
     return;
 }
 void unitSelectionO(){
@@ -267,6 +296,7 @@ printf("\nPlease select your Orc units\n\n");
 printf("[M]arauders(Cost 1, Attack 2, Defense 1)\n[C]hampions(Cost 2, Attack 2, Defense 2)\n");
 printf("[S]torm Riders(Cost 1, Attack 2, Defense 1)\n[B]ear Cavalry(Cost 2, Attack 3, Defense 1)\n");
 printf("[R]aiders(Cost 1, Attack 1, Defense 1)\n[W]arlocks(Cost 2, Attack 2, Defense 1)\n");
+printf("[Q] to return to faction selection screen\n");
 
     do {
     printf("\nYou have %d to spend on units", currency);
@@ -274,6 +304,10 @@ printf("[R]aiders(Cost 1, Attack 1, Defense 1)\n[W]arlocks(Cost 2, Attack 2, Def
     getchar();
 
             switch(unit){
+
+            case 'q': case 'Q':
+            quit = 'q';
+            break;
 
             case 'm': case 'M':
             infantry ++;
@@ -308,15 +342,19 @@ printf("[R]aiders(Cost 1, Attack 1, Defense 1)\n[W]arlocks(Cost 2, Attack 2, Def
             default:
             printf("\nInvalid selection");
             }
-    }while (currency >= 2);
+    }while ((currency >= 2) && (quit != 'q'));
 
-        while (currency == 1){
+        while ((currency == 1) && (quit != 'q')){
         printf("\nYou have %d to spend on units", currency);
         scanf(" %c", &unit);
         getchar();
 
 
             switch(unit){
+
+            case 'q': case 'Q':
+            quit = 'q';
+            break;
 
             case 'm': case 'M':
             infantry ++;
@@ -338,6 +376,7 @@ printf("[R]aiders(Cost 1, Attack 1, Defense 1)\n[W]arlocks(Cost 2, Attack 2, Def
             }
     }
     printf("\nYour unit roster is\n\n%d Infantry, %d Heavy Infantry, \n%d Light Cavalry, %d Knights, \n%d Skirmishers, %d Archers.\n", infantry, heavyInfantry, lightCavalry, knight, skirmisher, archer);
+    quit = 'n';
     return;
 }
 void randomEnemySelection(){
