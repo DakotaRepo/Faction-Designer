@@ -41,16 +41,17 @@ void unitTotal();
 void randomEnemySelection();
 
 int main(){
-
+    //Asks the user to select a difficulty.
     diff();
-
+    //Continues the faction selection until the user runs out of currency or chooses to stop designing their faction.
     do {
 
     fact();
 
     }while ((currency >= 1) && (quit != 'q'));
-
+    //Informs the user of the units they selected.
     unitTotal();
+    //Randomly selects one of six preset opponents
     srand(time(NULL));
     randomEnemySelection();
     return 0;
@@ -60,6 +61,7 @@ int main(){
 void diff(){
     char difficulty;
 
+    //Loops until user selects a correct difficulty. Difficulty determines how many units the user can purchase.
     do {
     printf("Please select your difficulty\n[E]asy, [N]ormal, [H]ard.\n");
     scanf(" %c", &difficulty);
@@ -90,7 +92,7 @@ void diff(){
 }
 void fact(){
 
-
+    //Loops until user selects a correct faction. User may also choose to not spend their remaining currency and quit, thereby executing the rest of the program.
     do {
     printf("Please select your Faction\n\n[H]umans, [E]lves, [O]rcs\n");
     printf("[Q]to cancel faction selection\n");
@@ -132,6 +134,7 @@ printf("[L]ancers(Cost 1, Attack 1, Defense 1)\n[K]nights(Cost 2, Attack 2, Defe
 printf("[S]kirmishers(Cost 1, Attack 1, Defense 1)\n[A]rchers(Cost 2, Attack 2, Defense 2)\n");
 printf("[Q]to return to faction selection screen\n");
 
+//Loops until user has 1 or less currency or chooses to return to faction selection.
     do {
     printf("\nYou have %d to spend on units ", currency);
     scanf(" %c", &unit);
@@ -179,6 +182,7 @@ printf("[Q]to return to faction selection screen\n");
 
     }while ((currency >= 2) && (quit != 'q'));
 
+        //Allows the user to spend their final currency point or return to faction selection.
         while ((currency == 1) && (quit != 'q')){
         printf("\nYou have %d to spend on units ", currency);
         scanf(" %c", &unit);
@@ -222,6 +226,7 @@ printf("[B]ow Cavalry(Cost 1, Attack 1, Defense 1)\n[N]oble Cavalry(Cost 2, Atta
 printf("[W]atchers(Cost 1, Attack 1, Defense 1)\n[L]ongbowmen(Cost 2, Attack 2, Defense 2)\n");
 printf("[Q]to return to faction selection screen\n");
 
+//Loops until user has 1 or less currency or chooses to return to faction selection.
     do {
     printf("\nYou have %d to spend on units ", currency);
     scanf(" %c", &unit);
@@ -268,6 +273,7 @@ printf("[Q]to return to faction selection screen\n");
             }
     }while ((currency >= 2) && (quit != 'q'));
 
+        //Allows the user to spend their final currency point or return to faction selection.
         while ((currency == 1) && (quit != 'q')){
         printf("\nYou have %d to spend on units ", currency);
         scanf(" %c", &unit);
@@ -311,6 +317,7 @@ printf("[S]torm Riders(Cost 1, Attack 2, Defense 1)\n[B]ear Cavalry(Cost 2, Atta
 printf("[R]aiders(Cost 1, Attack 1, Defense 1)\n[W]arlocks(Cost 2, Attack 2, Defense 1)\n");
 printf("[Q]to return to faction selection screen\n");
 
+//Loops until user has 1 or less currency or chooses to return to faction selection.
     do {
     printf("\nYou have %d to spend on units ", currency);
     scanf(" %c", &unit);
@@ -357,6 +364,7 @@ printf("[Q]to return to faction selection screen\n");
             }
     }while ((currency >= 2) && (quit != 'q'));
 
+        //Allows the user to spend their final currency point or return to faction selection.
         while ((currency == 1) && (quit != 'q')){
         printf("\nYou have %d to spend on units ", currency);
         scanf(" %c", &unit);
